@@ -8,8 +8,5 @@
 2. ```yarn install````
 3. Clone file ```.env.template``` and rename to ```.env````
 4. Change environment variables
-5. To set up the datbase.
-```
-docker-compose up
-```
+5. To set up the database ```docker-compose up```
 6. Run ```yarn start:dev```
