@@ -9,9 +9,14 @@ import { CommonModule } from './common/common.module';
     ConfigModule.forRoot(),
 
     TypeOrmModule.forRoot({
-      ssl: process.env.STAGE === 'prod',
+      ssl: {
+        rejectUnauthorized: false,
+      },
       extra: {
-        ssl: process.env.STAGE === 'prod' ? { rejectUnauthorized:false } : null
+        max: 5,
+        min: 1,
+        idleTimeoutMillis: 5000,
+        connectionTimeoutMillis: 2000,
       },
       type: 'postgres',
       host: process.env.DB_HOST,
@@ -20,7 +25,7 @@ import { CommonModule } from './common/common.module';
       username: (process.env.DB_USERNAME),
       password: process.env.DB_PASSWORD,
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
-      synchronize: true,
+      synchronize: false,
 
     }),
     ProductsModule,
