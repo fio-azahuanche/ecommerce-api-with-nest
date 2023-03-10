@@ -19,7 +19,7 @@ import { CommonModule } from './common/common.module';
       database: process.env.DB_NAME,
       username: (process.env.DB_USERNAME),
       password: process.env.DB_PASSWORD,
-      autoLoadEntities: true,
+      entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize: true,
 
     }),
