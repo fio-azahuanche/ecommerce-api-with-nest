@@ -63,7 +63,8 @@ export class ProductsService {
     });
 
     if(!product) throw new NotFoundException(`Product with id:${id} not found`)
-
+    //console.log('change for commit');
+    
     try {
       await this.productRepository.save(product);
       return product;
